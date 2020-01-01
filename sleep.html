@@ -1,34 +1,34 @@
 <script>
 
-		function httpGetAsync(theUrl, callback)
-		{
-			var xmlHttp = new XMLHttpRequest();
-			xmlHttp.onreadystatechange = function() { 
-				if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-					callback(xmlHttp.responseText);
-				} else {
-					console.log(xmlHttp.responseText);
-				}
+	function httpGetAsync(theUrl, callback)
+	{
+		var xmlHttp = new XMLHttpRequest();
+		xmlHttp.onreadystatechange = function() { 
+			if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+				callback(xmlHttp.responseText);
+			} else {
+				console.log(xmlHttp.responseText);
 			}
-			xmlHttp.open("GET", theUrl, true); // true for asynchronous 
-			xmlHttp.send(null);
 		}
+		xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+		xmlHttp.send(null);
+	}
 
-	  function sleep(milliseconds) {
-			var start = new Date().getTime();
-			for (var i = 0; i < 1e7; i++) {
-				if ((new Date().getTime() - start) > milliseconds){
-					break;
-				}
+	function sleep(milliseconds) {
+		var start = new Date().getTime();
+		for (var i = 0; i < 1e7; i++) {
+			if ((new Date().getTime() - start) > milliseconds){
+				break;
 			}
-	  }
+		}
+	}
     
-	  function callbackRun(cb) {
-		  console.log(cb);
-	  }    
+	function callbackRun(cb) {
+		console.log(cb);
+	}    
     
-    httpGetAsync("http://some_url",callbackRun);    
-    sleep(1000); // miliseconds
-		window.location.href = "http://some_url"; // most use to reload page
+	httpGetAsync("http://some_url",callbackRun);    
+	sleep(1000); // miliseconds
+	window.location.href = "http://some_url"; // most use to reload page
 
 </script>
